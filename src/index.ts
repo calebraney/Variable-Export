@@ -40,10 +40,10 @@ const clientFirstVariables = [
   { type: "Size", name: "text-transform/capitalize", value: 0, unit: "px" },
   { type: "Size", name: "text-transform/lowercase", value: 0, unit: "px" },
   // Line Height
-  { type: "Size", name: "line-height/1.5", value: 1.5, unit: "em" },
-  { type: "Size", name: "line-height/1.3", value: 1.3, unit: "em" },
-  { type: "Size", name: "line-height/1.1", value: 1.1, unit: "em" },
   { type: "Size", name: "line-height/1", value: 1, unit: "em" },
+  { type: "Size", name: "line-height/1.1", value: 1.1, unit: "em" },
+  { type: "Size", name: "line-height/1.3", value: 1.3, unit: "em" },
+  { type: "Size", name: "line-height/1.5", value: 1.5, unit: "em" },
   // Letter Spacing
   { type: "Size", name: "letter-spacing/0em", value: 0, unit: "em" },
   { type: "Size", name: "letter-spacing/-0.03em", value: -0.03, unit: "em" },
@@ -210,10 +210,10 @@ const lumosVariables = [
   { type: "Size", name: "text-transform/capitalize", value: 0, unit: "px" },
   { type: "Size", name: "text-transform/lowercase", value: 0, unit: "px" },
   // Line Height
-  { type: "Size", name: "line-height/1.5", value: 1.5, unit: "em" },
-  { type: "Size", name: "line-height/1.3", value: 1.3, unit: "em" },
-  { type: "Size", name: "line-height/1.1", value: 1.1, unit: "em" },
   { type: "Size", name: "line-height/1", value: 1, unit: "em" },
+  { type: "Size", name: "line-height/1.1", value: 1.1, unit: "em" },
+  { type: "Size", name: "line-height/1.3", value: 1.3, unit: "em" },
+  { type: "Size", name: "line-height/1.5", value: 1.5, unit: "em" },
   // Letter Spacing
   { type: "Size", name: "letter-spacing/0em", value: 0, unit: "em" },
   { type: "Size", name: "letter-spacing/-0.03em", value: -0.03, unit: "em" },
