@@ -359,49 +359,6 @@ const testVariables = [
     { type: "Size", name: "test1 - size", value: 1, unit: "rem" },
     { type: "Color", name: "test1 - color", value: "red" },
     { type: "FontFamily", name: "test1 - font", value: "system" },
-    {
-        type: "Size",
-        name: "test1Ref - sizeRef",
-        value: "test1 - size",
-        reference: true,
-    },
-    {
-        type: "Color",
-        name: "test1Ref - colorRef",
-        value: "test1 - color",
-        reference: true,
-    },
-    {
-        type: "FontFamily",
-        name: "test1Ref - fontRef",
-        value: "test1 - font",
-        reference: true,
-    },
-];
-const test2Variables = [
-    /////////////////
-    // Adaptive Sizes
-    { type: "Size", name: "test 2 / size", value: 1, unit: "rem" },
-    { type: "Color", name: "test 2 / color", value: "red" },
-    { type: "FontFamily", name: "test 2 / font", value: "system" },
-    {
-        type: "Size",
-        name: "test 2Ref / sizeRef",
-        value: "test 2 / size",
-        reference: true,
-    },
-    {
-        type: "Color",
-        name: "test 2Ref / colorRef",
-        value: "test 2 / color",
-        reference: true,
-    },
-    {
-        type: "FontFamily",
-        name: "test 2Ref / fontRef",
-        value: "test 2 / font",
-        reference: true,
-    },
 ];
 //////////////////////////////////
 // Variables App
@@ -488,13 +445,13 @@ function addButtonListeners() {
     const cfButton = document.getElementById("client-first");
     if (cfButton) {
         cfButton.onclick = () => {
-            importVariables(testVariables);
+            importVariables(clientFirstVariables);
         };
     }
     const lumosButton = document.getElementById("lumos");
     if (lumosButton) {
         lumosButton.onclick = () => {
-            importVariables(testVariables);
+            importVariables(lumosVariables);
         };
     }
     // tests
@@ -506,15 +463,11 @@ function addButtonListeners() {
     }
     const test2 = document.getElementById("test-2");
     if (test2) {
-        test2.onclick = () => {
-            importVariables(test2Variables);
-        };
+        test2.onclick = () => { };
     }
     const test3 = document.getElementById("test-3");
     if (test3) {
-        test3.onclick = () => {
-            importVariables(testVariables);
-        };
+        test3.onclick = () => { };
     }
 }
 addButtonListeners();
