@@ -161,11 +161,11 @@ const clientFirstVariables = [
   { type: "Color", name: "...color/border/alternate", value: "#ffffff" },
   // Base Colors
   { type: "Color", name: "...swatch/dark 1", value: "#ffffff" },
-  { type: "Color", name: "...swatch/dark 2", value: "#ffffff" },
-  { type: "Color", name: "...swatch/dark 3", value: "#ffffff" },
+  { type: "Color", name: "...swatch/dark 2", value: "#272525" },
+  { type: "Color", name: "...swatch/dark 3", value: "#5d5c5c" },
   { type: "Color", name: "...swatch/light 1", value: "#ffffff" },
-  { type: "Color", name: "...swatch/light 2", value: "#ffffff" },
-  { type: "Color", name: "...swatch/light 3", value: "#ffffff" },
+  { type: "Color", name: "...swatch/light 2", value: "#f4f4f4" },
+  { type: "Color", name: "...swatch/light 3", value: "#cfcfcf" },
 ];
 
 const lumosVariables = [
@@ -339,11 +339,11 @@ const lumosVariables = [
   { type: "Color", name: "...theme/border 4", value: "#ffffff" },
   // Base Colors
   { type: "Color", name: "...swatch/dark 1", value: "#ffffff" },
-  { type: "Color", name: "...swatch/dark 2", value: "#ffffff" },
-  { type: "Color", name: "...swatch/dark 3", value: "#ffffff" },
+  { type: "Color", name: "...swatch/dark 2", value: "#272525" },
+  { type: "Color", name: "...swatch/dark 3", value: "#5d5c5c" },
   { type: "Color", name: "...swatch/light 1", value: "#ffffff" },
-  { type: "Color", name: "...swatch/light 2", value: "#ffffff" },
-  { type: "Color", name: "...swatch/light 3", value: "#ffffff" },
+  { type: "Color", name: "...swatch/light 2", value: "#f4f4f4" },
+  { type: "Color", name: "...swatch/light 3", value: "#cfcfcf" },
   { type: "Color", name: "...swatch/brand 1", value: "#ffffff" },
 ];
 const testVariables = [
@@ -352,6 +352,12 @@ const testVariables = [
   { type: "Size", name: "test/size 1rem", value: 1, unit: "rem" },
   { type: "Color", name: "test/color", value: "red" },
   { type: "FontFamily", name: "test/font", value: "system" },
+  {
+    type: "Color",
+    name: "test-2/reference-color",
+    value: "test/color",
+    reference: true,
+  },
 ];
 
 //////////////////////////////////
@@ -364,38 +370,55 @@ const createVariable = async function (variable) {
   // Fetch all variables within the default collection
   const currentVariables = await collection?.getAllVariables();
   let createdVariable;
+  let referenceValue;
   // get the type, name and value of the variable
-  let { type, name, value, unit } = variable;
-  // if alias is true find the referenced variable and update the value
-  if (variable?.alias === true) {
+  let { type, name, value, unit, reference = false } = variable;
+  // if reference is true find the referenced variable and update the value
+  if (reference === true) {
     // Get Variable by Name
-    const aliasVariable = await collection?.getVariableByName(value);
-    if (!aliasVariable) {
+    const referenceVariable = await collection?.getVariableByName(value);
+    console.log(referenceVariable);
+    // if reference is set and type is Size
+    if (referenceVariable && referenceVariable.type === "Size") {
+      // Create Size Variable with a Size Value
+      const createdSizeVariable = await collection?.createSizeVariable(
+        name,
+        referenceVariable
+      );
+    } // if reference is set and type is Color
+    if (referenceVariable && referenceVariable.type === "Color") {
+      // Create Color Variable with a Size Value
+      const createdColorVariable = await collection?.createColorVariable(
+        name,
+        referenceVariable
+      );
+    } // if reference is set and type is font family
+    if (referenceVariable && referenceVariable.type === "FontFamily") {
+      const createdFontFamilyVariable =
+        await collection?.createFontFamilyVariable(name, referenceVariable);
+    } else {
       await webflow.notify({
         type: "Error",
-        message: "The alias for this variable was not found",
+        message: "The reference for this variable was not found",
       });
-      return;
-    } else {
-      value = aliasVariable;
     }
   }
-  if (type === "Size") {
-    // Create Size Variable with a Size Value
+  //no reference size variable
+  if (!reference && type === "Size") {
     createdVariable = await collection?.createSizeVariable(name, {
       unit: unit,
       value: value,
     });
   }
-  if (type === "Color") {
-    // Create Color Variable with a HEX Code
+  //no reference Color Variable
+  if (!reference && type === "Color") {
     createdVariable = await collection?.createColorVariable(name, value);
   }
-  if (type === "FontFamily") {
+  // no reference font family varialbe
+  if (!reference && type === "FontFamily") {
     // Create Font Family Variable with a Font Family Name
     createdVariable = await collection?.createFontFamilyVariable(name, value);
   }
-  console.log(createdVariable, createdVariable.type);
 };
 
 // function to import variables
@@ -421,21 +444,24 @@ const importVariables = async function (variables) {
 //button event listeners for app
 function addButtonListeners() {
   document.getElementById("client-first").onclick = () => {
-    importVariables(testVariables);
+    importVariables(clientFirstVariables);
   };
   document.getElementById("lumos").onclick = () => {
     importVariables(lumosVariables);
   };
-  //// tests
-  // document.getElementById("test-1").onclick = () => {
-  //   test3();
-  // };
-  // document.getElementById("test-2").onclick = () => {
-  //   test2();
-  // };
-  // document.getElementById("test-2").onclick = () => {
-  //   test3();
-  // };
+  // tests
+  document.getElementById("test-import").onclick = () => {
+    importVariables(testVariables);
+  };
+  document.getElementById("test-1").onclick = () => {
+    test1();
+  };
+  document.getElementById("test-2").onclick = () => {
+    test2();
+  };
+  document.getElementById("test-3").onclick = () => {
+    test3();
+  };
 }
 addButtonListeners();
 
@@ -451,70 +477,65 @@ document.getElementById("extension-form").onsubmit = async (event) => {
 //////////////////////////
 // Tests
 // create reference variable via js variable
-// const test = async function () {
-//   // Get Collection
-//   const collection = await webflow.getDefaultVariableCollection();
-
-//   // Create first variable
-//   const firstVariable = await collection?.createColorVariable(
-//     "Test 1 Color",
-//     "red"
-//   );
-//   // create second variable referencing the first
-//   if (firstVariable) {
-//     // Create second variable as an alias of the first
-//     const secondVariable = await collection?.createColorVariable(
-//       "Test 2 Reference",
-//       firstVariable
-//     );
-//     console.log("test 1: ", secondVariable);
-//   }
-// };
-// const test2 = async function () {
-//   //Get the collection of the current Webflow Variables
-//   const collection = await webflow.getDefaultVariableCollection();
-//   // Create first variable
-//   const firstVariable = await collection?.createColorVariable(
-//     "Test 2 - Color",
-//     "red"
-//   );
-//   //find the first variable
-//   const referenceVariable = await collection?.getVariableByName(
-//     "Test 2 - Color"
-//   );
-//   console.log(referenceVariable);
-
-//   if (referenceVariable && referenceVariable.type === "Color") {
-//     // Create second variable as an alias of the first
-//     const secondVariable = await collection?.createColorVariable(
-//       "Test 2 - Reference",
-//       referenceVariable
-//     );
-//     console.log("test 2: ", secondVariable);
-//   }
-// };
-// //create js variable via get varialbey by name
-// const test3 = async function () {
-//   //Get the collection of the current Webflow Variables
-//   const collection = await webflow.getDefaultVariableCollection();
-//   // Create first variable
-//   const firstVariable = await collection?.createColorVariable(
-//     "Test 3/Color",
-//     "red"
-//   );
-//   //find the first variable
-//   const referenceVariable = await collection?.getVariableByName("Test 3/Color");
-//   console.log(referenceVariable);
-
-//   if (referenceVariable && referenceVariable.type === "Color") {
-//     // Create second variable as an alias of the first
-//     const secondVariable = await collection?.createColorVariable(
-//       "Test 3/Reference",
-//       referenceVariable
-//     );
-//     console.log("test 3: ", secondVariable);
-//   }
-// };
+const test1 = async function () {
+  // Get Collection
+  const collection = await webflow.getDefaultVariableCollection();
+  // Create first variable
+  const firstVariable = await collection?.createColorVariable(
+    "Test 1 Color",
+    "red"
+  );
+  // create second variable referencing the first
+  if (firstVariable) {
+    // Create second variable as an reference of the first
+    const secondVariable = await collection?.createColorVariable(
+      "Test 1 Reference",
+      firstVariable
+    );
+    console.log("test 1: ", secondVariable);
+  }
+};
+const test2 = async function () {
+  //Get the collection of the current Webflow Variables
+  const collection = await webflow.getDefaultVariableCollection();
+  // Create first variable
+  const firstVariable = await collection?.createColorVariable(
+    "Test 2 - Color",
+    "red"
+  );
+  //find the first variable
+  const referenceVariable = await collection?.getVariableByName(
+    "Test 2 - Color"
+  );
+  if (referenceVariable && referenceVariable.type === "Color") {
+    // Create second variable as an reference of the first
+    const secondVariable = await collection?.createColorVariable(
+      "Test 2 - Reference",
+      referenceVariable
+    );
+    console.log("test 2: ", secondVariable);
+  }
+};
+//create js variable via get varialbey by name
+const test3 = async function () {
+  //Get the collection of the current Webflow Variables
+  const collection = await webflow.getDefaultVariableCollection();
+  // Create first variable
+  const firstVariable = await collection?.createColorVariable(
+    "test/color",
+    "red"
+  );
+  //find the first variable
+  const referenceVariable = await collection?.getVariableByName("test/color");
+  //if reference variable exists and has the same type
+  if (referenceVariable && referenceVariable.type === "Color") {
+    // Create second variable as an reference of the first
+    const secondVariable = await collection?.createColorVariable(
+      "Test 3/Reference",
+      referenceVariable
+    );
+  }
+};
 
 /*
 const clientFirstVariablesV1 = [
@@ -613,11 +634,11 @@ const clientFirstVariablesV1 = [
   { type: "Color", name: "...color/border alternate", value: "#ffffff" },
   // Base Colors
   { type: "Color", name: "...swatch/dark 1", value: "#ffffff" },
-  { type: "Color", name: "...swatch/dark 2", value: "#ffffff" },
-  { type: "Color", name: "...swatch/dark 3", value: "#ffffff" },
+  { type: "Color", name: "...swatch/dark 2", value: "#272525" },
+  { type: "Color", name: "...swatch/dark 3", value: "#5d5c5c" },
   { type: "Color", name: "...swatch/light 1", value: "#ffffff" },
-  { type: "Color", name: "...swatch/light 2", value: "#ffffff" },
-  { type: "Color", name: "...swatch/light 3", value: "#ffffff" },
+  { type: "Color", name: "...swatch/light 2", value: "#f4f4f4" },
+  { type: "Color", name: "...swatch/light 3", value: "#cfcfcf" },
   /////////////////
   // Fonts
   { type: "FontFamily", name: "font family/primary", value: "system-ui" },
