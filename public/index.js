@@ -374,27 +374,30 @@ const createVariable = function (variable) {
         //Get the collection of the current Webflow Variables
         const collection = yield webflow.getDefaultVariableCollection();
         // Fetch all variables within the default collection
-        const currentVariables = yield (collection === null || collection === void 0 ? void 0 : collection.getAllVariables());
         let createdVariable;
-        let referenceValue;
         // get the type, name and value of the variable
         let { type, name, value, unit, reference = false } = variable;
         // if reference is true find the referenced variable and update the value
         if (reference === true) {
-            // Get Variable by Name
+            // Get Variable by Name (not working)
             const referenceVariable = yield (collection === null || collection === void 0 ? void 0 : collection.getVariableByName(value));
-            console.log(referenceVariable);
             // if reference is set and type is Size
-            if (referenceVariable && referenceVariable.type === "Size") {
+            if (referenceVariable &&
+                referenceVariable.type === "Size" &&
+                type === "Size") {
                 // Create Size Variable with a Size Value
-                const createdSizeVariable = yield (collection === null || collection === void 0 ? void 0 : collection.createSizeVariable(name, referenceVariable));
+                createdVariable = yield (collection === null || collection === void 0 ? void 0 : collection.createSizeVariable(name, referenceVariable));
             } // if reference is set and type is Color
-            if (referenceVariable && referenceVariable.type === "Color") {
+            if (referenceVariable &&
+                referenceVariable.type === "Color" &&
+                type === "Color") {
                 // Create Color Variable with a Size Value
-                const createdColorVariable = yield (collection === null || collection === void 0 ? void 0 : collection.createColorVariable(name, referenceVariable));
+                createdVariable = yield (collection === null || collection === void 0 ? void 0 : collection.createColorVariable(name, referenceVariable));
             } // if reference is set and type is font family
-            if (referenceVariable && referenceVariable.type === "FontFamily") {
-                const createdFontFamilyVariable = yield (collection === null || collection === void 0 ? void 0 : collection.createFontFamilyVariable(name, referenceVariable));
+            if (referenceVariable &&
+                referenceVariable.type === "FontFamily" &&
+                type === "FontFamily") {
+                createdVariable = yield (collection === null || collection === void 0 ? void 0 : collection.createFontFamilyVariable(name, referenceVariable));
             }
             else {
                 yield webflow.notify({
@@ -444,25 +447,25 @@ const importVariables = function (variables) {
 };
 //button event listeners for app
 function addButtonListeners() {
-    document.getElementById("client-first").onclick = () => {
-        importVariables(clientFirstVariables);
-    };
-    document.getElementById("lumos").onclick = () => {
-        importVariables(lumosVariables);
-    };
+    const cfButton = document.getElementById("client-first");
+    if (cfButton) {
+        cfButton.onclick = () => {
+            importVariables(testVariables);
+        };
+    }
+    const lumosButton = document.getElementById("lumos");
+    if (lumosButton) {
+        lumosButton.onclick = () => {
+            importVariables(testVariables);
+        };
+    }
     // tests
-    document.getElementById("test-import").onclick = () => {
-        importVariables(testVariables);
-    };
-    document.getElementById("test-1").onclick = () => {
-        test1();
-    };
-    document.getElementById("test-2").onclick = () => {
-        test2();
-    };
-    document.getElementById("test-3").onclick = () => {
-        test3();
-    };
+    const importButton = document.getElementById("test-import");
+    if (importButton) {
+        importButton.onclick = () => {
+            importVariables(testVariables);
+        };
+    }
 }
 addButtonListeners();
 //handle app form submit
@@ -472,54 +475,6 @@ document.getElementById("extension-form").onsubmit = (event) => __awaiter(this, 
     const el = yield webflow.getSelectedElement();
     //button listeners
 });
-//////////////////////////
-// Tests
-// create reference variable via js variable
-const test1 = function () {
-    return __awaiter(this, void 0, void 0, function* () {
-        // Get Collection
-        const collection = yield webflow.getDefaultVariableCollection();
-        // Create first variable
-        const firstVariable = yield (collection === null || collection === void 0 ? void 0 : collection.createColorVariable("Test 1 Color", "red"));
-        // create second variable referencing the first
-        if (firstVariable) {
-            // Create second variable as an reference of the first
-            const secondVariable = yield (collection === null || collection === void 0 ? void 0 : collection.createColorVariable("Test 1 Reference", firstVariable));
-            console.log("test 1: ", secondVariable);
-        }
-    });
-};
-const test2 = function () {
-    return __awaiter(this, void 0, void 0, function* () {
-        //Get the collection of the current Webflow Variables
-        const collection = yield webflow.getDefaultVariableCollection();
-        // Create first variable
-        const firstVariable = yield (collection === null || collection === void 0 ? void 0 : collection.createColorVariable("Test 2 - Color", "red"));
-        //find the first variable
-        const referenceVariable = yield (collection === null || collection === void 0 ? void 0 : collection.getVariableByName("Test 2 - Color"));
-        if (referenceVariable && referenceVariable.type === "Color") {
-            // Create second variable as an reference of the first
-            const secondVariable = yield (collection === null || collection === void 0 ? void 0 : collection.createColorVariable("Test 2 - Reference", referenceVariable));
-            console.log("test 2: ", secondVariable);
-        }
-    });
-};
-//create js variable via get varialbey by name
-const test3 = function () {
-    return __awaiter(this, void 0, void 0, function* () {
-        //Get the collection of the current Webflow Variables
-        const collection = yield webflow.getDefaultVariableCollection();
-        // Create first variable
-        const firstVariable = yield (collection === null || collection === void 0 ? void 0 : collection.createColorVariable("test/color", "red"));
-        //find the first variable
-        const referenceVariable = yield (collection === null || collection === void 0 ? void 0 : collection.getVariableByName("test/color"));
-        //if reference variable exists and has the same type
-        if (referenceVariable && referenceVariable.type === "Color") {
-            // Create second variable as an reference of the first
-            const secondVariable = yield (collection === null || collection === void 0 ? void 0 : collection.createColorVariable("Test 3/Reference", referenceVariable));
-        }
-    });
-};
 /*
 const clientFirstVariablesV1 = [
   /////////////////

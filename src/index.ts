@@ -368,34 +368,46 @@ const createVariable = async function (variable) {
   //Get the collection of the current Webflow Variables
   const collection = await webflow.getDefaultVariableCollection();
   // Fetch all variables within the default collection
-  const currentVariables = await collection?.getAllVariables();
+
   let createdVariable;
-  let referenceValue;
   // get the type, name and value of the variable
   let { type, name, value, unit, reference = false } = variable;
   // if reference is true find the referenced variable and update the value
   if (reference === true) {
-    // Get Variable by Name
+    // Get Variable by Name (not working)
     const referenceVariable = await collection?.getVariableByName(value);
-    console.log(referenceVariable);
     // if reference is set and type is Size
-    if (referenceVariable && referenceVariable.type === "Size") {
+    if (
+      referenceVariable &&
+      referenceVariable.type === "Size" &&
+      type === "Size"
+    ) {
       // Create Size Variable with a Size Value
-      const createdSizeVariable = await collection?.createSizeVariable(
+      createdVariable = await collection?.createSizeVariable(
         name,
         referenceVariable
       );
     } // if reference is set and type is Color
-    if (referenceVariable && referenceVariable.type === "Color") {
+    if (
+      referenceVariable &&
+      referenceVariable.type === "Color" &&
+      type === "Color"
+    ) {
       // Create Color Variable with a Size Value
-      const createdColorVariable = await collection?.createColorVariable(
+      createdVariable = await collection?.createColorVariable(
         name,
         referenceVariable
       );
     } // if reference is set and type is font family
-    if (referenceVariable && referenceVariable.type === "FontFamily") {
-      const createdFontFamilyVariable =
-        await collection?.createFontFamilyVariable(name, referenceVariable);
+    if (
+      referenceVariable &&
+      referenceVariable.type === "FontFamily" &&
+      type === "FontFamily"
+    ) {
+      createdVariable = await collection?.createFontFamilyVariable(
+        name,
+        referenceVariable
+      );
     } else {
       await webflow.notify({
         type: "Error",
@@ -443,25 +455,25 @@ const importVariables = async function (variables) {
 
 //button event listeners for app
 function addButtonListeners() {
-  document.getElementById("client-first").onclick = () => {
-    importVariables(clientFirstVariables);
-  };
-  document.getElementById("lumos").onclick = () => {
-    importVariables(lumosVariables);
-  };
+  const cfButton = document.getElementById("client-first");
+  if (cfButton) {
+    cfButton.onclick = () => {
+      importVariables(testVariables);
+    };
+  }
+  const lumosButton = document.getElementById("lumos");
+  if (lumosButton) {
+    lumosButton.onclick = () => {
+      importVariables(testVariables);
+    };
+  }
   // tests
-  document.getElementById("test-import").onclick = () => {
-    importVariables(testVariables);
-  };
-  document.getElementById("test-1").onclick = () => {
-    test1();
-  };
-  document.getElementById("test-2").onclick = () => {
-    test2();
-  };
-  document.getElementById("test-3").onclick = () => {
-    test3();
-  };
+  const importButton = document.getElementById("test-import");
+  if (importButton) {
+    importButton.onclick = () => {
+      importVariables(testVariables);
+    };
+  }
 }
 addButtonListeners();
 
@@ -472,69 +484,6 @@ document.getElementById("extension-form").onsubmit = async (event) => {
   // Get the current selected Element
   const el = await webflow.getSelectedElement();
   //button listeners
-};
-
-//////////////////////////
-// Tests
-// create reference variable via js variable
-const test1 = async function () {
-  // Get Collection
-  const collection = await webflow.getDefaultVariableCollection();
-  // Create first variable
-  const firstVariable = await collection?.createColorVariable(
-    "Test 1 Color",
-    "red"
-  );
-  // create second variable referencing the first
-  if (firstVariable) {
-    // Create second variable as an reference of the first
-    const secondVariable = await collection?.createColorVariable(
-      "Test 1 Reference",
-      firstVariable
-    );
-    console.log("test 1: ", secondVariable);
-  }
-};
-const test2 = async function () {
-  //Get the collection of the current Webflow Variables
-  const collection = await webflow.getDefaultVariableCollection();
-  // Create first variable
-  const firstVariable = await collection?.createColorVariable(
-    "Test 2 - Color",
-    "red"
-  );
-  //find the first variable
-  const referenceVariable = await collection?.getVariableByName(
-    "Test 2 - Color"
-  );
-  if (referenceVariable && referenceVariable.type === "Color") {
-    // Create second variable as an reference of the first
-    const secondVariable = await collection?.createColorVariable(
-      "Test 2 - Reference",
-      referenceVariable
-    );
-    console.log("test 2: ", secondVariable);
-  }
-};
-//create js variable via get varialbey by name
-const test3 = async function () {
-  //Get the collection of the current Webflow Variables
-  const collection = await webflow.getDefaultVariableCollection();
-  // Create first variable
-  const firstVariable = await collection?.createColorVariable(
-    "test/color",
-    "red"
-  );
-  //find the first variable
-  const referenceVariable = await collection?.getVariableByName("test/color");
-  //if reference variable exists and has the same type
-  if (referenceVariable && referenceVariable.type === "Color") {
-    // Create second variable as an reference of the first
-    const secondVariable = await collection?.createColorVariable(
-      "Test 3/Reference",
-      referenceVariable
-    );
-  }
 };
 
 /*
