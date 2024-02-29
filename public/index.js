@@ -356,13 +356,50 @@ const lumosVariables = [
 const testVariables = [
     /////////////////
     // Adaptive Sizes
-    { type: "Size", name: "test/size 1rem", value: 1, unit: "rem" },
-    { type: "Color", name: "test/color", value: "red" },
-    { type: "FontFamily", name: "test/font", value: "system" },
+    { type: "Size", name: "test1 - size", value: 1, unit: "rem" },
+    { type: "Color", name: "test1 - color", value: "red" },
+    { type: "FontFamily", name: "test1 - font", value: "system" },
+    {
+        type: "Size",
+        name: "test1Ref - sizeRef",
+        value: "test1 - size",
+        reference: true,
+    },
     {
         type: "Color",
-        name: "test-2/reference-color",
-        value: "test/color",
+        name: "test1Ref - colorRef",
+        value: "test1 - color",
+        reference: true,
+    },
+    {
+        type: "FontFamily",
+        name: "test1Ref - fontRef",
+        value: "test1 - font",
+        reference: true,
+    },
+];
+const test2Variables = [
+    /////////////////
+    // Adaptive Sizes
+    { type: "Size", name: "test 2 / size", value: 1, unit: "rem" },
+    { type: "Color", name: "test 2 / color", value: "red" },
+    { type: "FontFamily", name: "test 2 / font", value: "system" },
+    {
+        type: "Size",
+        name: "test 2Ref / sizeRef",
+        value: "test 2 / size",
+        reference: true,
+    },
+    {
+        type: "Color",
+        name: "test 2Ref / colorRef",
+        value: "test 2 / color",
+        reference: true,
+    },
+    {
+        type: "FontFamily",
+        name: "test 2Ref / fontRef",
+        value: "test 2 / font",
         reference: true,
     },
 ];
@@ -399,7 +436,8 @@ const createVariable = function (variable) {
                 type === "FontFamily") {
                 createdVariable = yield (collection === null || collection === void 0 ? void 0 : collection.createFontFamilyVariable(name, referenceVariable));
             }
-            else {
+            // if reference variable is not found
+            if (reference === true && referenceVariable === null) {
                 yield webflow.notify({
                     type: "Error",
                     message: "The reference for this variable was not found",
@@ -460,9 +498,21 @@ function addButtonListeners() {
         };
     }
     // tests
-    const importButton = document.getElementById("test-import");
-    if (importButton) {
-        importButton.onclick = () => {
+    const test1 = document.getElementById("test-1");
+    if (test1) {
+        test1.onclick = () => {
+            importVariables(testVariables);
+        };
+    }
+    const test2 = document.getElementById("test-2");
+    if (test2) {
+        test2.onclick = () => {
+            importVariables(test2Variables);
+        };
+    }
+    const test3 = document.getElementById("test-3");
+    if (test3) {
+        test3.onclick = () => {
             importVariables(testVariables);
         };
     }
