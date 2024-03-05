@@ -1,6 +1,111 @@
 ///////////////////
-//Client First With Type Variables +  Folders
+// Client first with just type size variables
 const cf1 = [
+    { type: "Size", name: "size/0rem", value: 0, unit: "rem" },
+    { type: "Size", name: "size/0.125rem", value: 0.125, unit: "rem" },
+    { type: "Size", name: "size/0.25rem", value: 0.25, unit: "rem" },
+    { type: "Size", name: "size/0.5rem", value: 0.5, unit: "rem" },
+    { type: "Size", name: "size/.75rem", value: 0.75, unit: "rem" },
+    { type: "Size", name: "size/1rem", value: 1, unit: "rem" },
+    { type: "Size", name: "size/1.25rem", value: 1.25, unit: "rem" },
+    { type: "Size", name: "size/1.5rem", value: 1.5, unit: "rem" },
+    { type: "Size", name: "size/1.75rem", value: 1.75, unit: "rem" },
+    { type: "Size", name: "size/2rem", value: 2, unit: "rem" },
+    { type: "Size", name: "size/2.5rem", value: 2.5, unit: "rem" },
+    { type: "Size", name: "size/3rem", value: 3, unit: "rem" },
+    { type: "Size", name: "size/3.5rem", value: 3.5, unit: "rem" },
+    { type: "Size", name: "size/4rem", value: 4, unit: "rem" },
+    { type: "Size", name: "size/4.5rem", value: 4.5, unit: "rem" },
+    { type: "Size", name: "size/5rem", value: 5, unit: "rem" },
+    { type: "Size", name: "size/5.5rem", value: 5.5, unit: "rem" },
+    { type: "Size", name: "size/6rem", value: 6, unit: "rem" },
+    { type: "Size", name: "size/6.5rem", value: 6.5, unit: "rem" },
+    { type: "Size", name: "size/7rem", value: 7, unit: "rem" },
+    { type: "Size", name: "size/7.5rem", value: 7.5, unit: "rem" },
+    { type: "Size", name: "size/8rem", value: 8, unit: "rem" },
+    { type: "Size", name: "size/8.5rem", value: 8.5, unit: "rem" },
+    { type: "Size", name: "size/9rem", value: 9, unit: "rem" },
+    { type: "Size", name: "size/9.5rem", value: 9.5, unit: "rem" },
+    { type: "Size", name: "size/10rem", value: 10, unit: "rem" },
+    { type: "Size", name: "size/11rem", value: 11, unit: "rem" },
+    { type: "Size", name: "size/12rem", value: 12, unit: "rem" },
+    { type: "Size", name: "size/13rem", value: 13, unit: "rem" },
+    { type: "Size", name: "size/14rem", value: 14, unit: "rem" },
+    { type: "Size", name: "size/15rem", value: 15, unit: "rem" },
+    { type: "Size", name: "size/16rem", value: 16, unit: "rem" },
+    // Page Structure
+    { type: "Size", name: "..padding/horizontal", value: 5, unit: "vw" },
+    { type: "Size", name: "..padding/section large", value: 9, unit: "rem" },
+    { type: "Size", name: "..padding/section main", value: 6, unit: "rem" },
+    { type: "Size", name: "..padding/section small", value: 3, unit: "rem" },
+    { type: "Size", name: "..max width/large", value: 96, unit: "rem" },
+    { type: "Size", name: "..max width/main", value: 80, unit: "rem" },
+    { type: "Size", name: "..max width/small", value: 64, unit: "rem" },
+    // Border Width
+    { type: "Size", name: "..border width/main", value: 1, unit: "px" },
+    // Border Radius
+    { type: "Size", name: "..border radius/xsmall", value: 0.5, unit: "rem" },
+    { type: "Size", name: "..border radius/small", value: 1, unit: "rem" },
+    { type: "Size", name: "..border radius/medium", value: 2, unit: "rem" },
+    { type: "Size", name: "..border radius/large", value: 4, unit: "rem" },
+    { type: "Size", name: "..border radius/rounded", value: 100, unit: "vw" },
+    { type: "Size", name: "..border radius/image", value: 4, unit: "rem" },
+    // Typography Desktop
+    { type: "Size", name: ".font size/h1", value: 5, unit: "rem" },
+    { type: "Size", name: ".font size/h2", value: 4, unit: "rem" },
+    { type: "Size", name: ".font size/h3", value: 3.5, unit: "rem" },
+    { type: "Size", name: ".font size/h4", value: 3, unit: "rem" },
+    { type: "Size", name: ".font size/h5", value: 2, unit: "rem" },
+    { type: "Size", name: ".font size/h6", value: 1.5, unit: "rem" },
+    // Typography Tablet
+    { type: "Size", name: ".font size/md/h1", value: 5, unit: "rem" },
+    { type: "Size", name: ".font size/md/h2", value: 4, unit: "rem" },
+    { type: "Size", name: ".font size/md/h3", value: 3.5, unit: "rem" },
+    { type: "Size", name: ".font size/md/h4", value: 3, unit: "rem" },
+    { type: "Size", name: ".font size/md/h5", value: 2, unit: "rem" },
+    { type: "Size", name: ".font size/md/h6", value: 1.5, unit: "rem" },
+    // Typography Mobile Landcape
+    { type: "Size", name: ".font size/sm/h1", value: 5, unit: "rem" },
+    { type: "Size", name: ".font size/sm/h2", value: 4, unit: "rem" },
+    { type: "Size", name: ".font size/sm/h3", value: 3.5, unit: "rem" },
+    { type: "Size", name: ".font size/sm/h4", value: 3, unit: "rem" },
+    { type: "Size", name: ".font size/sm/h5", value: 2, unit: "rem" },
+    { type: "Size", name: ".font size/sm/h6", value: 1.5, unit: "rem" },
+    // Typography Mobile Portrait
+    { type: "Size", name: ".font size/xs/h1", value: 5, unit: "rem" },
+    { type: "Size", name: ".font size/xs/h2", value: 4, unit: "rem" },
+    { type: "Size", name: ".font size/xs/h3", value: 3.5, unit: "rem" },
+    { type: "Size", name: ".font size/xs/h4", value: 3, unit: "rem" },
+    { type: "Size", name: ".font size/xs/h5", value: 2, unit: "rem" },
+    { type: "Size", name: ".font size/xs/h6", value: 1.5, unit: "rem" },
+    /////////////////
+    // Semantic Colors
+    { type: "Color", name: "...color/background primary", value: "#ffffff" },
+    { type: "Color", name: "...color/background secondary", value: "#ffffff" },
+    { type: "Color", name: "...color/background accent", value: "#ffffff" },
+    { type: "Color", name: "...color/background alternate", value: "#ffffff" },
+    { type: "Color", name: "...color/text primary", value: "#ffffff" },
+    { type: "Color", name: "...color/text secondary", value: "#ffffff" },
+    { type: "Color", name: "...color/text accent", value: "#ffffff" },
+    { type: "Color", name: "...color/text alternate", value: "#ffffff" },
+    { type: "Color", name: "...color/border primary", value: "#ffffff" },
+    { type: "Color", name: "...color/border secondary", value: "#ffffff" },
+    { type: "Color", name: "...color/border accent", value: "#ffffff" },
+    { type: "Color", name: "...color/border alternate", value: "#ffffff" },
+    // Base Colors
+    { type: "Color", name: "...swatch/dark 1", value: "#ffffff" },
+    { type: "Color", name: "...swatch/dark 2", value: "#272525" },
+    { type: "Color", name: "...swatch/dark 3", value: "#5d5c5c" },
+    { type: "Color", name: "...swatch/light 1", value: "#ffffff" },
+    { type: "Color", name: "...swatch/light 2", value: "#f4f4f4" },
+    { type: "Color", name: "...swatch/light 3", value: "#cfcfcf" },
+    /////////////////
+    // Fonts
+    { type: "FontFamily", name: "font family/primary", value: "system-ui" },
+    { type: "FontFamily", name: "font family/secondary", value: "Arial" },
+];
+//Client First With Type Variables +  Folders
+const cf2 = [
     /////////////////
     // Adaptive Sizes
     { type: "Size", name: "size/0rem", value: 0, unit: "rem" },
