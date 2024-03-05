@@ -10,170 +10,281 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 const clientFirstVariables = [
     /////////////////
     // Adaptive Sizes
-    { type: "Size", name: "size/0rem", value: 0, unit: "rem" },
-    { type: "Size", name: "size/0.125rem", value: 0.125, unit: "rem" },
-    { type: "Size", name: "size/0.25rem", value: 0.25, unit: "rem" },
-    { type: "Size", name: "size/0.5rem", value: 0.5, unit: "rem" },
-    { type: "Size", name: "size/.75rem", value: 0.75, unit: "rem" },
-    { type: "Size", name: "size/1rem", value: 1, unit: "rem" },
-    { type: "Size", name: "size/1.25rem", value: 1.25, unit: "rem" },
-    { type: "Size", name: "size/1.5rem", value: 1.5, unit: "rem" },
-    { type: "Size", name: "size/1.75rem", value: 1.75, unit: "rem" },
-    { type: "Size", name: "size/2rem", value: 2, unit: "rem" },
-    { type: "Size", name: "size/2.5rem", value: 2.5, unit: "rem" },
-    { type: "Size", name: "size/3rem", value: 3, unit: "rem" },
-    { type: "Size", name: "size/3.5rem", value: 3.5, unit: "rem" },
-    { type: "Size", name: "size/4rem", value: 4, unit: "rem" },
-    { type: "Size", name: "size/4.5rem", value: 4.5, unit: "rem" },
-    { type: "Size", name: "size/5rem", value: 5, unit: "rem" },
-    { type: "Size", name: "size/5.5rem", value: 5.5, unit: "rem" },
-    { type: "Size", name: "size/6rem", value: 6, unit: "rem" },
-    { type: "Size", name: "size/6.5rem", value: 6.5, unit: "rem" },
-    { type: "Size", name: "size/7rem", value: 7, unit: "rem" },
-    { type: "Size", name: "size/7.5rem", value: 7.5, unit: "rem" },
-    { type: "Size", name: "size/8rem", value: 8, unit: "rem" },
-    { type: "Size", name: "size/8.5rem", value: 8.5, unit: "rem" },
-    { type: "Size", name: "size/9rem", value: 9, unit: "rem" },
-    { type: "Size", name: "size/9.5rem", value: 9.5, unit: "rem" },
-    { type: "Size", name: "size/10rem", value: 10, unit: "rem" },
-    { type: "Size", name: "size/11rem", value: 11, unit: "rem" },
-    { type: "Size", name: "size/12rem", value: 12, unit: "rem" },
-    { type: "Size", name: "size/13rem", value: 13, unit: "rem" },
-    { type: "Size", name: "size/14rem", value: 14, unit: "rem" },
-    { type: "Size", name: "size/15rem", value: 15, unit: "rem" },
-    { type: "Size", name: "size/16rem", value: 16, unit: "rem" },
+    { type: "Size", name: "size|0rem", value: 0, unit: "rem" },
+    { type: "Size", name: "size|0.125rem", value: 0.125, unit: "rem" },
+    { type: "Size", name: "size|0.25rem", value: 0.25, unit: "rem" },
+    { type: "Size", name: "size|0.5rem", value: 0.5, unit: "rem" },
+    { type: "Size", name: "size|0.75rem", value: 0.75, unit: "rem" },
+    { type: "Size", name: "size|1rem", value: 1, unit: "rem" },
+    { type: "Size", name: "size|1.25rem", value: 1.25, unit: "rem" },
+    { type: "Size", name: "size|1.5rem", value: 1.5, unit: "rem" },
+    { type: "Size", name: "size|1.75rem", value: 1.75, unit: "rem" },
+    { type: "Size", name: "size|2rem", value: 2, unit: "rem" },
+    { type: "Size", name: "size|2.5rem", value: 2.5, unit: "rem" },
+    { type: "Size", name: "size|3rem", value: 3, unit: "rem" },
+    { type: "Size", name: "size|3.5rem", value: 3.5, unit: "rem" },
+    { type: "Size", name: "size|4rem", value: 4, unit: "rem" },
+    { type: "Size", name: "size|4.5rem", value: 4.5, unit: "rem" },
+    { type: "Size", name: "size|5rem", value: 5, unit: "rem" },
+    { type: "Size", name: "size|5.5rem", value: 5.5, unit: "rem" },
+    { type: "Size", name: "size|6rem", value: 6, unit: "rem" },
+    { type: "Size", name: "size|6.5rem", value: 6.5, unit: "rem" },
+    { type: "Size", name: "size|7rem", value: 7, unit: "rem" },
+    { type: "Size", name: "size|7.5rem", value: 7.5, unit: "rem" },
+    { type: "Size", name: "size|8rem", value: 8, unit: "rem" },
+    { type: "Size", name: "size|8.5rem", value: 8.5, unit: "rem" },
+    { type: "Size", name: "size|9rem", value: 9, unit: "rem" },
+    { type: "Size", name: "size|9.5rem", value: 9.5, unit: "rem" },
+    { type: "Size", name: "size|10rem", value: 10, unit: "rem" },
+    { type: "Size", name: "size|11rem", value: 11, unit: "rem" },
+    { type: "Size", name: "size|12rem", value: 12, unit: "rem" },
+    { type: "Size", name: "size|13rem", value: 13, unit: "rem" },
+    { type: "Size", name: "size|14rem", value: 14, unit: "rem" },
+    { type: "Size", name: "size|15rem", value: 15, unit: "rem" },
+    { type: "Size", name: "size|16rem", value: 16, unit: "rem" },
     // Text Transform
-    { type: "Size", name: "text-transform/inherit", value: 0, unit: "px" },
-    { type: "Size", name: "text-transform/none", value: 0, unit: "px" },
-    { type: "Size", name: "text-transform/uppercase", value: 0, unit: "px" },
-    { type: "Size", name: "text-transform/capitalize", value: 0, unit: "px" },
-    { type: "Size", name: "text-transform/lowercase", value: 0, unit: "px" },
+    { type: "Size", name: "text-transform|inherit", value: 0, unit: "px" },
+    { type: "Size", name: "text-transform|none", value: 0, unit: "px" },
+    { type: "Size", name: "text-transform|uppercase", value: 0, unit: "px" },
+    { type: "Size", name: "text-transform|capitalize", value: 0, unit: "px" },
+    { type: "Size", name: "text-transform|lowercase", value: 0, unit: "px" },
     // Line Height
-    { type: "Size", name: "line-height/1", value: 1, unit: "em" },
-    { type: "Size", name: "line-height/1.1", value: 1.1, unit: "em" },
-    { type: "Size", name: "line-height/1.3", value: 1.3, unit: "em" },
-    { type: "Size", name: "line-height/1.5", value: 1.5, unit: "em" },
+    { type: "Size", name: "line-height|1", value: 1, unit: "em" },
+    { type: "Size", name: "line-height|1.1", value: 1.1, unit: "em" },
+    { type: "Size", name: "line-height|1.3", value: 1.3, unit: "em" },
+    { type: "Size", name: "line-height|1.5", value: 1.5, unit: "em" },
     // Letter Spacing
-    { type: "Size", name: "letter-spacing/0em", value: 0, unit: "em" },
-    { type: "Size", name: "letter-spacing/-0.03em", value: -0.03, unit: "em" },
+    { type: "Size", name: "letter-spacing|0em", value: 0, unit: "em" },
+    { type: "Size", name: "letter-spacing|-0.03em", value: -0.03, unit: "em" },
     // Font Weights
-    { type: "Size", name: "font-weight/100", value: 0, unit: "px" },
-    { type: "Size", name: "font-weight/200", value: 0, unit: "px" },
-    { type: "Size", name: "font-weight/300", value: 0, unit: "px" },
-    { type: "Size", name: "font-weight/400", value: 0, unit: "px" },
-    { type: "Size", name: "font-weight/500", value: 0, unit: "px" },
-    { type: "Size", name: "font-weight/600", value: 0, unit: "px" },
-    { type: "Size", name: "font-weight/700", value: 0, unit: "px" },
-    { type: "Size", name: "font-weight/800", value: 0, unit: "px" },
-    { type: "Size", name: "font-weight/900", value: 0, unit: "px" },
+    { type: "Size", name: "font-weight|100", value: 0, unit: "px" },
+    { type: "Size", name: "font-weight|200", value: 0, unit: "px" },
+    { type: "Size", name: "font-weight|300", value: 0, unit: "px" },
+    { type: "Size", name: "font-weight|400", value: 0, unit: "px" },
+    { type: "Size", name: "font-weight|500", value: 0, unit: "px" },
+    { type: "Size", name: "font-weight|600", value: 0, unit: "px" },
+    { type: "Size", name: "font-weight|700", value: 0, unit: "px" },
+    { type: "Size", name: "font-weight|800", value: 0, unit: "px" },
+    { type: "Size", name: "font-weight|900", value: 0, unit: "px" },
     // Font Global
-    { type: "FontFamily", name: "font/inherit", value: "system" },
-    { type: "FontFamily", name: "font/primary-family", value: "Arial" },
-    { type: "Size", name: "font/primary-light", value: 0, unit: "px" },
-    { type: "Size", name: "font/primary-regular", value: 0, unit: "px" },
-    { type: "Size", name: "font/primary-medium", value: 0, unit: "px" },
-    { type: "Size", name: "font/primary-bold", value: 0, unit: "px" },
-    { type: "FontFamily", name: "font/secondary-family", value: "Montserrat" },
-    { type: "Size", name: "font/secondary-regular", value: 0, unit: "px" },
-    { type: "Size", name: "font/secondary-bold", value: 0, unit: "px" },
+    { type: "FontFamily", name: "font|inherit", value: "system" },
+    { type: "FontFamily", name: "font|primary-family", value: "Arial" },
+    {
+        type: "Size",
+        name: "font|primary-light",
+        value: "font-weight|300",
+        reference: true,
+    },
+    {
+        type: "Size",
+        name: "font|primary-regular",
+        value: "font-weight|400",
+        reference: true,
+    },
+    {
+        type: "Size",
+        name: "font|primary-medium",
+        value: "font-weight|500",
+        reference: true,
+    },
+    {
+        type: "Size",
+        name: "font|primary-bold",
+        value: "font-weight|700",
+        reference: true,
+    },
+    { type: "FontFamily", name: "font|secondary-family", value: "Montserrat" },
+    {
+        type: "Size",
+        name: "font|secondary-regular",
+        value: "font-weight|400",
+        reference: true,
+    },
+    {
+        type: "Size",
+        name: "font|secondary-bold",
+        value: "font-weight|700",
+        reference: true,
+    },
     // Page Structure
-    { type: "Size", name: "..padding/horizontal", value: 5, unit: "vw" },
-    { type: "Size", name: "..padding/section - large", value: 9, unit: "rem" },
-    { type: "Size", name: "..padding/section - main", value: 6, unit: "rem" },
-    { type: "Size", name: "..padding/section - small", value: 3, unit: "rem" },
-    { type: "Size", name: "..container/large", value: 80, unit: "rem" },
-    { type: "Size", name: "..container/main", value: 64, unit: "rem" },
-    { type: "Size", name: "..container/small", value: 48, unit: "rem" },
+    { type: "Size", name: "..padding|horizontal", value: 5, unit: "vw" },
+    {
+        type: "Size",
+        name: "..padding|section - large",
+        value: "size|9rem",
+        reference: true,
+    },
+    {
+        type: "Size",
+        name: "..padding|section - main",
+        value: "size|6rem",
+        reference: true,
+    },
+    {
+        type: "Size",
+        name: "..padding|section - small",
+        value: "size|3rem",
+        reference: true,
+    },
+    { type: "Size", name: "..container|large", value: 80, unit: "rem" },
+    { type: "Size", name: "..container|main", value: 64, unit: "rem" },
+    { type: "Size", name: "..container|small", value: 48, unit: "rem" },
     // Border Width
     { type: "Size", name: "..border width/main", value: 1, unit: "px" },
     // Border Radius
-    { type: "Size", name: "..border radius/x small", value: 0.5, unit: "rem" },
-    { type: "Size", name: "..border radius/small", value: 1, unit: "rem" },
-    { type: "Size", name: "..border radius/medium", value: 1.5, unit: "rem" },
-    { type: "Size", name: "..border radius/large", value: 3, unit: "rem" },
-    { type: "Size", name: "..border radius/rounded", value: 100, unit: "vw" },
-    { type: "Size", name: "..border radius/card", value: 4, unit: "rem" },
-    { type: "Size", name: "..border radius/image", value: 4, unit: "rem" },
+    {
+        type: "Size",
+        name: "..border radius|x small",
+        value: "size|0.5rem",
+        reference: true,
+    },
+    {
+        type: "Size",
+        name: "..border radius|small",
+        value: "size|1rem",
+        reference: true,
+    },
+    {
+        type: "Size",
+        name: "..border radius|medium",
+        value: "size|1.5rem",
+        reference: true,
+    },
+    {
+        type: "Size",
+        name: "..border radius|large",
+        value: "size|3rem",
+        reference: true,
+    },
+    { type: "Size", name: "..border radius|rounded", value: 100, unit: "vw" },
+    {
+        type: "Size",
+        name: "..border radius|card",
+        value: "..border radius|large",
+        reference: true,
+    },
+    {
+        type: "Size",
+        name: "..border radius|image",
+        value: "..border radius|large",
+        reference: true,
+    },
     // Typography - .body
-    { type: "Size", name: ".body/font-size", value: 5, unit: "rem" },
-    { type: "FontFamily", name: ".body/font-family", value: "system" },
-    { type: "Size", name: ".body/font-weight", value: 0, unit: "px" },
-    { type: "Size", name: ".body/line-height", value: 0, unit: "px" },
-    { type: "Size", name: ".body/letter-spacing", value: 0, unit: "px" },
-    { type: "Size", name: ".body/text-transform", value: 0, unit: "px" },
+    { type: "Size", name: ".body|font-size", value: 5, unit: "rem" },
+    { type: "FontFamily", name: ".body|font-family", value: "system" },
+    { type: "Size", name: ".body|font-weight", value: 0, unit: "px" },
+    { type: "Size", name: ".body|line-height", value: 0, unit: "px" },
+    { type: "Size", name: ".body|letter-spacing", value: 0, unit: "px" },
+    { type: "Size", name: ".body|text-transform", value: 0, unit: "px" },
     // Typography - .h1
-    { type: "Size", name: ".h1/font-size", value: 5, unit: "rem" },
-    { type: "FontFamily", name: ".h1/font-family", value: "system" },
-    { type: "Size", name: ".h1/font-weight", value: 0, unit: "px" },
-    { type: "Size", name: ".h1/line-height", value: 0, unit: "px" },
-    { type: "Size", name: ".h1/letter-spacing", value: 0, unit: "px" },
-    { type: "Size", name: ".h1/text-transform", value: 0, unit: "px" },
+    {
+        type: "Size",
+        name: ".h1|font-size",
+        value: "size|5rem",
+        reference: true,
+    },
+    {
+        type: "FontFamily",
+        name: ".h1|font-family",
+        value: "font|primary-family",
+        reference: true,
+    },
+    {
+        type: "Size",
+        name: ".h1|font-weight",
+        value: "font|primary-bold",
+        reference: true,
+    },
+    {
+        type: "Size",
+        name: ".h1|line-height",
+        value: "line-height|1",
+        reference: true,
+    },
+    {
+        type: "Size",
+        name: ".h1|letter-spacing",
+        value: "letter-spacing|0em",
+        reference: true,
+    },
+    {
+        type: "Size",
+        name: ".h1|text-transform",
+        value: "text-transform|inherit",
+        reference: true,
+    },
     // Typography - .h2
-    { type: "Size", name: ".h2/font-size", value: 4, unit: "rem" },
-    { type: "FontFamily", name: ".h2/font-family", value: "system" },
-    { type: "Size", name: ".h2/font-weight", value: 0, unit: "px" },
-    { type: "Size", name: ".h2/line-height", value: 0, unit: "px" },
-    { type: "Size", name: ".h2/letter-spacing", value: 0, unit: "px" },
-    { type: "Size", name: ".h2/text-transform", value: 0, unit: "px" },
+    { type: "Size", name: ".h2|font-size", value: 4, unit: "rem" },
+    { type: "FontFamily", name: ".h2|font-family", value: "system" },
+    { type: "Size", name: ".h2|font-weight", value: 0, unit: "px" },
+    { type: "Size", name: ".h2|line-height", value: 0, unit: "px" },
+    { type: "Size", name: ".h2|letter-spacing", value: 0, unit: "px" },
+    { type: "Size", name: ".h2|text-transform", value: 0, unit: "px" },
     // Typography - .h3
-    { type: "Size", name: ".h3/font-size", value: 3, unit: "rem" },
-    { type: "FontFamily", name: ".h3/font-family", value: "system" },
-    { type: "Size", name: ".h3/font-weight", value: 0, unit: "px" },
-    { type: "Size", name: ".h3/line-height", value: 0, unit: "px" },
-    { type: "Size", name: ".h3/letter-spacing", value: 0, unit: "px" },
-    { type: "Size", name: ".h3/text-transform", value: 0, unit: "px" },
+    { type: "Size", name: ".h3|font-size", value: 3, unit: "rem" },
+    { type: "FontFamily", name: ".h3|font-family", value: "system" },
+    { type: "Size", name: ".h3|font-weight", value: 0, unit: "px" },
+    { type: "Size", name: ".h3|line-height", value: 0, unit: "px" },
+    { type: "Size", name: ".h3|letter-spacing", value: 0, unit: "px" },
+    { type: "Size", name: ".h3|text-transform", value: 0, unit: "px" },
     // Typography - .h4
-    { type: "Size", name: ".h4/font-size", value: 2, unit: "rem" },
-    { type: "FontFamily", name: ".h4/font-family", value: "system" },
-    { type: "Size", name: ".h4/font-weight", value: 0, unit: "px" },
-    { type: "Size", name: ".h4/line-height", value: 0, unit: "px" },
-    { type: "Size", name: ".h4/letter-spacing", value: 0, unit: "px" },
-    { type: "Size", name: ".h4/text-transform", value: 0, unit: "px" },
+    { type: "Size", name: ".h4|font-size", value: 2, unit: "rem" },
+    { type: "FontFamily", name: ".h4|font-family", value: "system" },
+    { type: "Size", name: ".h4|font-weight", value: 0, unit: "px" },
+    { type: "Size", name: ".h4|line-height", value: 0, unit: "px" },
+    { type: "Size", name: ".h4|letter-spacing", value: 0, unit: "px" },
+    { type: "Size", name: ".h4|text-transform", value: 0, unit: "px" },
     // Typography - .h5
-    { type: "Size", name: ".h5/font-size", value: 1.5, unit: "rem" },
-    { type: "FontFamily", name: ".h5/font-family", value: "system" },
-    { type: "Size", name: ".h5/font-weight", value: 0, unit: "px" },
-    { type: "Size", name: ".h5/line-height", value: 0, unit: "px" },
-    { type: "Size", name: ".h5/letter-spacing", value: 0, unit: "px" },
-    { type: "Size", name: ".h5/text-transform", value: 0, unit: "px" },
+    { type: "Size", name: ".h5|font-size", value: 1.5, unit: "rem" },
+    { type: "FontFamily", name: ".h5|font-family", value: "system" },
+    { type: "Size", name: ".h5|font-weight", value: 0, unit: "px" },
+    { type: "Size", name: ".h5|line-height", value: 0, unit: "px" },
+    { type: "Size", name: ".h5|letter-spacing", value: 0, unit: "px" },
+    { type: "Size", name: ".h5|text-transform", value: 0, unit: "px" },
     // Typography - .h6
-    { type: "Size", name: ".h6/font-size", value: 1.25, unit: "rem" },
-    { type: "FontFamily", name: ".h6/font-family", value: "system" },
-    { type: "Size", name: ".h6/font-weight", value: 0, unit: "px" },
-    { type: "Size", name: ".h6/line-height", value: 0, unit: "px" },
-    { type: "Size", name: ".h6/letter-spacing", value: 0, unit: "px" },
-    { type: "Size", name: ".h6/text-transform", value: 0, unit: "px" },
+    { type: "Size", name: ".h6|font-size", value: 1.25, unit: "rem" },
+    { type: "FontFamily", name: ".h6|font-family", value: "system" },
+    { type: "Size", name: ".h6|font-weight", value: 0, unit: "px" },
+    { type: "Size", name: ".h6|line-height", value: 0, unit: "px" },
+    { type: "Size", name: ".h6|letter-spacing", value: 0, unit: "px" },
+    { type: "Size", name: ".h6|text-transform", value: 0, unit: "px" },
     // Typography - .p
-    { type: "Size", name: ".p/font-size", value: 1, unit: "rem" },
-    { type: "FontFamily", name: ".p/font-family", value: "system" },
-    { type: "Size", name: ".p/font-weight", value: 0, unit: "px" },
-    { type: "Size", name: ".p/line-height", value: 0, unit: "px" },
-    { type: "Size", name: ".p/letter-spacing", value: 0, unit: "px" },
-    { type: "Size", name: ".p/text-transform", value: 0, unit: "px" },
+    { type: "Size", name: ".p|font-size", value: 1, unit: "rem" },
+    { type: "FontFamily", name: ".p|font-family", value: "system" },
+    { type: "Size", name: ".p|font-weight", value: 0, unit: "px" },
+    { type: "Size", name: ".p|line-height", value: 0, unit: "px" },
+    { type: "Size", name: ".p|letter-spacing", value: 0, unit: "px" },
+    { type: "Size", name: ".p|text-transform", value: 0, unit: "px" },
     // Typography - .p
-    { type: "Size", name: ".p-small/font-size", value: 0.875, unit: "rem" },
-    { type: "Size", name: ".p-large/font-size", value: 1.25, unit: "rem" },
+    { type: "Size", name: ".p-small|font-size", value: 0.875, unit: "rem" },
+    {
+        type: "Size",
+        name: ".p-large|font-size",
+        value: "size|1.25rem",
+        reference: true,
+    },
     /////////////////
     // Semantic Colors
-    { type: "Color", name: "...color/background/primary", value: "#ffffff" },
-    { type: "Color", name: "...color/background/secondary", value: "#ffffff" },
-    { type: "Color", name: "...color/background/accent", value: "#ffffff" },
-    { type: "Color", name: "...color/background/alternate", value: "#ffffff" },
-    { type: "Color", name: "...color/text/primary", value: "#ffffff" },
-    { type: "Color", name: "...color/text/secondary", value: "#ffffff" },
-    { type: "Color", name: "...color/text/accent", value: "#ffffff" },
-    { type: "Color", name: "...color/text/alternate", value: "#ffffff" },
-    { type: "Color", name: "...color/border/primary", value: "#ffffff" },
-    { type: "Color", name: "...color/border/secondary", value: "#ffffff" },
-    { type: "Color", name: "...color/border/accent", value: "#ffffff" },
-    { type: "Color", name: "...color/border/alternate", value: "#ffffff" },
+    { type: "Color", name: "...color|background|primary", value: "#ffffff" },
+    { type: "Color", name: "...color|background|secondary", value: "#ffffff" },
+    { type: "Color", name: "...color|background|accent", value: "#ffffff" },
+    { type: "Color", name: "...color|background|alternate", value: "#ffffff" },
+    { type: "Color", name: "...color|text|primary", value: "#ffffff" },
+    { type: "Color", name: "...color|text|secondary", value: "#ffffff" },
+    { type: "Color", name: "...color|text|accent", value: "#ffffff" },
+    { type: "Color", name: "...color|text|alternate", value: "#ffffff" },
+    { type: "Color", name: "...color|border|primary", value: "#ffffff" },
+    { type: "Color", name: "...color|border|secondary", value: "#ffffff" },
+    { type: "Color", name: "...color|border|accent", value: "#ffffff" },
+    { type: "Color", name: "...color|border|alternate", value: "#ffffff" },
     // Base Colors
-    { type: "Color", name: "...swatch/dark 1", value: "#ffffff" },
-    { type: "Color", name: "...swatch/dark 2", value: "#272525" },
-    { type: "Color", name: "...swatch/dark 3", value: "#5d5c5c" },
-    { type: "Color", name: "...swatch/light 1", value: "#ffffff" },
-    { type: "Color", name: "...swatch/light 2", value: "#f4f4f4" },
-    { type: "Color", name: "...swatch/light 3", value: "#cfcfcf" },
+    { type: "Color", name: "...swatch|dark 1", value: "#ffffff" },
+    { type: "Color", name: "...swatch|dark 2", value: "#272525" },
+    { type: "Color", name: "...swatch|dark 3", value: "#5d5c5c" },
+    { type: "Color", name: "...swatch|light 1", value: "#ffffff" },
+    { type: "Color", name: "...swatch|light 2", value: "#f4f4f4" },
+    { type: "Color", name: "...swatch|light 3", value: "#cfcfcf" },
+    { type: "Color", name: "...swatch|brand 1", value: "#cfcfcf" },
 ];
 const lumosVariables = [
     /////////////////
@@ -356,9 +467,27 @@ const lumosVariables = [
 const testVariables = [
     /////////////////
     // Adaptive Sizes
-    { type: "Size", name: "test1 - size", value: 1, unit: "rem" },
-    { type: "Color", name: "test1 - color", value: "red" },
-    { type: "FontFamily", name: "test1 - font", value: "system" },
+    { type: "Size", name: "test1-size", value: 1, unit: "rem" },
+    { type: "Color", name: "test1-color", value: "red" },
+    { type: "FontFamily", name: "test1-font", value: "system" },
+    {
+        type: "Size",
+        name: "test1-sizeRef",
+        value: "test1-size",
+        reference: true,
+    },
+    {
+        type: "Color",
+        name: "test1-colorRef",
+        value: "test1-color",
+        reference: true,
+    },
+    {
+        type: "FontFamily",
+        name: "test1-fontRef",
+        value: "test1-font",
+        reference: true,
+    },
 ];
 //////////////////////////////////
 // Variables App
@@ -371,24 +500,27 @@ const createVariable = function (variable) {
         let createdVariable;
         // get the type, name and value of the variable
         let { type, name, value, unit, reference = false } = variable;
+        // console.log(type, name, value, unit, reference);
         // if reference is true find the referenced variable and update the value
         if (reference === true) {
-            // Get Variable by Name (not working)
+            // Get Variable by Name
             const referenceVariable = yield (collection === null || collection === void 0 ? void 0 : collection.getVariableByName(value));
             // if reference is set and type is Size
-            if (referenceVariable &&
+            // console.log(referenceVariable, "type: ", referenceVariable.type);
+            if (referenceVariable !== null &&
                 referenceVariable.type === "Size" &&
                 type === "Size") {
                 // Create Size Variable with a Size Value
                 createdVariable = yield (collection === null || collection === void 0 ? void 0 : collection.createSizeVariable(name, referenceVariable));
-            } // if reference is set and type is Color
-            if (referenceVariable &&
+            } // if type is size but reference isn't found create the variable with  default value
+            // if reference is set and type is Color
+            else if (referenceVariable !== null &&
                 referenceVariable.type === "Color" &&
                 type === "Color") {
                 // Create Color Variable with a Size Value
                 createdVariable = yield (collection === null || collection === void 0 ? void 0 : collection.createColorVariable(name, referenceVariable));
-            } // if reference is set and type is font family
-            if (referenceVariable &&
+            } // if type is color but reference isn't found create the variable with  default value
+            else if (referenceVariable !== null &&
                 referenceVariable.type === "FontFamily" &&
                 type === "FontFamily") {
                 createdVariable = yield (collection === null || collection === void 0 ? void 0 : collection.createFontFamilyVariable(name, referenceVariable));
@@ -400,23 +532,22 @@ const createVariable = function (variable) {
                     message: "The reference for this variable was not found",
                 });
             }
+        } // if referense is set to false
+        else {
+            if (type === "Size") {
+                createdVariable = yield (collection === null || collection === void 0 ? void 0 : collection.createSizeVariable(name, {
+                    unit: unit,
+                    value: value,
+                }));
+            }
+            else if (type === "Color") {
+                createdVariable = yield (collection === null || collection === void 0 ? void 0 : collection.createColorVariable(name, value));
+            }
+            else if (type === "FontFamily") {
+                createdVariable = yield (collection === null || collection === void 0 ? void 0 : collection.createFontFamilyVariable(name, value));
+            }
         }
-        //no reference size variable
-        if (!reference && type === "Size") {
-            createdVariable = yield (collection === null || collection === void 0 ? void 0 : collection.createSizeVariable(name, {
-                unit: unit,
-                value: value,
-            }));
-        }
-        //no reference Color Variable
-        if (!reference && type === "Color") {
-            createdVariable = yield (collection === null || collection === void 0 ? void 0 : collection.createColorVariable(name, value));
-        }
-        // no reference font family varialbe
-        if (!reference && type === "FontFamily") {
-            // Create Font Family Variable with a Font Family Name
-            createdVariable = yield (collection === null || collection === void 0 ? void 0 : collection.createFontFamilyVariable(name, value));
-        }
+        return createdVariable;
     });
 };
 // function to import variables
@@ -431,7 +562,7 @@ const importVariables = function (variables) {
             return;
         }
         variables.forEach((variable) => __awaiter(this, void 0, void 0, function* () {
-            createVariable(variable);
+            const createdVariable = yield createVariable(variable);
         }));
         //after all variables have been created notify the amount of variables created
         yield webflow.notify({
@@ -440,6 +571,94 @@ const importVariables = function (variables) {
         });
     });
 };
+// function to import variables
+const addFolderNames = function () {
+    return __awaiter(this, void 0, void 0, function* () {
+        //Get the collection of the current Webflow Variables
+        const collection = yield webflow.getDefaultVariableCollection();
+        if (collection) {
+            // Fetch all variables within the default collection
+            const variables = yield collection.getAllVariables();
+            const variablesAmount = variables.length;
+            variables.forEach((variable) => __awaiter(this, void 0, void 0, function* () {
+                //get the current variable name
+                const currentName = yield variable.getName();
+                //resuable regular expression function
+                function escapeRegExp(string) {
+                    return string.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"); // $& means the whole matched string
+                }
+                function replaceAll(str, find, replace) {
+                    return str.replace(new RegExp(escapeRegExp(find), "g"), replace);
+                }
+                const newName = replaceAll(currentName, "|", "/");
+                const updatedVariable = yield variable.setName(newName);
+                //after all variables have been deleted notify user
+                yield webflow.notify({
+                    type: "Success",
+                    message: `${variablesAmount} Variables Renamed`,
+                });
+            }));
+        }
+        else {
+            //after all variables have been created notify the amount of variables created
+            yield webflow.notify({
+                type: "Error",
+                message: `Error Renaming Variables`,
+            });
+        }
+    });
+};
+// function to import variables
+const deleteVariables = function () {
+    return __awaiter(this, void 0, void 0, function* () {
+        //Get the collection of the current Webflow Variables
+        const collection = yield webflow.getDefaultVariableCollection();
+        if (collection) {
+            // Fetch all variables within the default collection
+            const variables = yield collection.getAllVariables();
+            const variablesAmount = variables.length;
+            variables.forEach((variable) => __awaiter(this, void 0, void 0, function* () {
+                variable.remove();
+            }));
+            //after all variables have been deleted notify user
+            yield webflow.notify({
+                type: "Success",
+                message: `${variablesAmount} Variables Deleted`,
+            });
+        }
+        else {
+            //after all variables have been created notify the amount of variables created
+            yield webflow.notify({
+                type: "Error",
+                message: `No Variables Found`,
+            });
+        }
+    });
+};
+// const test1function = async function name() {
+//   const variable = {
+//     type: "Size",
+//     name: "test1-sizeRef",
+//     value: "test1-size",
+//     reference: true,
+//   };
+//   let createdVariable;
+//   // get the type, name and value of the variable
+//   let { type, name, value, reference = false } = variable;
+//   //Get the collection of the current Webflow Variables
+//   const collection = await webflow.getDefaultVariableCollection();
+//   // Get Variable by Name
+//   const referenceVariable = await collection?.getVariableByName(value);
+//   // if reference is set and type is Size
+//   console.log(referenceVariable);
+//   if (referenceVariable !== null && referenceVariable.type === "Size") {
+//     // Create Size Variable with a Size Value
+//     createdVariable = await collection?.createSizeVariable(
+//       name,
+//       referenceVariable
+//     );
+//   }
+// };
 //button event listeners for app
 function addButtonListeners() {
     const cfButton = document.getElementById("client-first");
@@ -461,13 +680,27 @@ function addButtonListeners() {
             importVariables(testVariables);
         };
     }
-    const test2 = document.getElementById("test-2");
-    if (test2) {
-        test2.onclick = () => { };
-    }
+    // const test2 = document.getElementById("test-2");
+    // if (test2) {
+    //   test2.onclick = () => {
+    //     test1function();
+    //   };
+    // }
     const test3 = document.getElementById("test-3");
     if (test3) {
         test3.onclick = () => { };
+    }
+    const addFoldersBtn = document.getElementById("add-folders");
+    if (addFoldersBtn) {
+        addFoldersBtn.onclick = () => {
+            addFolderNames();
+        };
+    }
+    const deleteBtn = document.getElementById("delete");
+    if (deleteBtn) {
+        deleteBtn.onclick = () => {
+            deleteVariables();
+        };
     }
 }
 addButtonListeners();
