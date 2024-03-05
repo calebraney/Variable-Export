@@ -638,6 +638,20 @@ const deleteVariables = async function () {
     });
   }
 };
+// function to log variables to the console
+const logVariables = async function () {
+  //Get the collection of the current Webflow Variables
+  const collection = await webflow.getDefaultVariableCollection();
+  if (collection) {
+    // Fetch all variables within the default collection
+    const variables = await collection.getAllVariables();
+    variables.forEach(async (variable) => {
+      const name = await variable.getName();
+      const value = await variable.get();
+      console.log(`name:`, name, `value:`, value);
+    });
+  }
+};
 // const test1function = async function name() {
 //   const variable = {
 //     type: "Size",
@@ -695,6 +709,7 @@ function addButtonListeners() {
   // if (test3) {
   //   test3.onclick = () => {};
   // }
+  // Utility Functions
   const addFoldersBtn = document.getElementById("add-folders");
   if (addFoldersBtn) {
     addFoldersBtn.onclick = () => {
@@ -705,6 +720,12 @@ function addButtonListeners() {
   if (deleteBtn) {
     deleteBtn.onclick = () => {
       deleteVariables();
+    };
+  }
+  const logBtn = document.getElementById("log");
+  if (logBtn) {
+    logBtn.onclick = () => {
+      logVariables();
     };
   }
 }
