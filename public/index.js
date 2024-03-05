@@ -689,18 +689,19 @@ function addButtonListeners() {
     // const test3 = document.getElementById("test-3");
     // if (test3) {
     //   test3.onclick = () => {};
-}
-const addFoldersBtn = document.getElementById("add-folders");
-if (addFoldersBtn) {
-    addFoldersBtn.onclick = () => {
-        addFolderNames();
-    };
-}
-const deleteBtn = document.getElementById("delete");
-if (deleteBtn) {
-    deleteBtn.onclick = () => {
-        deleteVariables();
-    };
+    // }
+    const addFoldersBtn = document.getElementById("add-folders");
+    if (addFoldersBtn) {
+        addFoldersBtn.onclick = () => {
+            addFolderNames();
+        };
+    }
+    const deleteBtn = document.getElementById("delete");
+    if (deleteBtn) {
+        deleteBtn.onclick = () => {
+            deleteVariables();
+        };
+    }
 }
 addButtonListeners();
 //handle app form submit
