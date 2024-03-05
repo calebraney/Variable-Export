@@ -1,13 +1,13 @@
 ///////////////////
-//With Folders
-const clientFirstVariablesWithFolder = [
+//Client First With Type Variables +  Folders
+const cf1 = [
   /////////////////
   // Adaptive Sizes
   { type: "Size", name: "size/0rem", value: 0, unit: "rem" },
   { type: "Size", name: "size/0.125rem", value: 0.125, unit: "rem" },
   { type: "Size", name: "size/0.25rem", value: 0.25, unit: "rem" },
   { type: "Size", name: "size/0.5rem", value: 0.5, unit: "rem" },
-  { type: "Size", name: "size/.75rem", value: 0.75, unit: "rem" },
+  { type: "Size", name: "size/0.75rem", value: 0.75, unit: "rem" },
   { type: "Size", name: "size/1rem", value: 1, unit: "rem" },
   { type: "Size", name: "size/1.25rem", value: 1.25, unit: "rem" },
   { type: "Size", name: "size/1.5rem", value: 1.5, unit: "rem" },
@@ -171,12 +171,12 @@ const clientFirstVariablesWithFolder = [
 ];
 /////////////////
 // Lumos With Folders
-const lumosVariablesWithFolders = [
+const lumosv1 = [
   { type: "Size", name: "size/0rem", value: 0, unit: "rem" },
   { type: "Size", name: "size/0.125rem", value: 0.125, unit: "rem" },
   { type: "Size", name: "size/0.25rem", value: 0.25, unit: "rem" },
   { type: "Size", name: "size/0.5rem", value: 0.5, unit: "rem" },
-  { type: "Size", name: "size/.75rem", value: 0.75, unit: "rem" },
+  { type: "Size", name: "size/0.75rem", value: 0.75, unit: "rem" },
   { type: "Size", name: "size/1rem", value: 1, unit: "rem" },
   { type: "Size", name: "size/1.25rem", value: 1.25, unit: "rem" },
   { type: "Size", name: "size/1.5rem", value: 1.5, unit: "rem" },
