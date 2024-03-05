@@ -460,25 +460,25 @@ const lumosVariables = [
 const testVariables = [
   /////////////////
   // Adaptive Sizes
-  { type: "Size", name: "test1-size", value: 1, unit: "rem" },
-  { type: "Color", name: "test1-color", value: "red" },
-  { type: "FontFamily", name: "test1-font", value: "system" },
+  { type: "Size", name: "test1|size", value: 1, unit: "rem" },
+  { type: "Color", name: "test1|color", value: "red" },
+  { type: "FontFamily", name: "test1|font", value: "system" },
   {
     type: "Size",
-    name: "test1-sizeRef",
-    value: "test1-size",
+    name: "test1|sizeRef",
+    value: "test1|size",
     reference: true,
   },
   {
     type: "Color",
-    name: "test1-colorRef",
-    value: "test1-color",
+    name: "test1|colorRef",
+    value: "test1|color",
     reference: true,
   },
   {
     type: "FontFamily",
-    name: "test1-fontRef",
-    value: "test1-font",
+    name: "test1|fontRef",
+    value: "test1|font",
     reference: true,
   },
 ];
@@ -641,8 +641,8 @@ const deleteVariables = async function () {
 // const test1function = async function name() {
 //   const variable = {
 //     type: "Size",
-//     name: "test1-sizeRef",
-//     value: "test1-size",
+//     name: "test1|sizeRef",
+//     value: "test1|size",
 //     reference: true,
 //   };
 //   let createdVariable;
