@@ -465,19 +465,19 @@ const testVariables = [
   { type: "FontFamily", name: "test1/font", value: "system" },
   {
     type: "Size",
-    name: "test1/sizeRef",
+    name: "test1/sizeReference",
     value: "test1/size",
     reference: true,
   },
   {
     type: "Color",
-    name: "test1/colorRef",
+    name: "test1/colorReference",
     value: "test1/color",
     reference: true,
   },
   {
     type: "FontFamily",
-    name: "test1/fontRef",
+    name: "test1/fontReference",
     value: "test1/font",
     reference: true,
   },
